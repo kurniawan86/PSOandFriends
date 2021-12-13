@@ -90,6 +90,21 @@ class PSO:
                 fit = (self.obj.SchwefelF7(
                     self.swarm[i].position))
                 self.swarm[i].fitness = fit
+        elif self.function_name == 'Step':
+            for i in range(self.nSwarm):
+                fit = (self.obj.Step(
+                    self.swarm[i].position))
+                self.swarm[i].fitness = fit
+        elif self.function_name == 'Rastrigin':
+            for i in range(self.nSwarm):
+                fit = (self.obj.Rastrigin(
+                    self.swarm[i].position))
+                self.swarm[i].fitness = fit
+        elif self.function_name == 'Ackley':
+            for i in range(self.nSwarm):
+                fit = (self.obj.Ackley(
+                    self.swarm[i].position))
+                self.swarm[i].fitness = fit
 
     def initPbestFitness(self):
         for i in range(self.nSwarm):

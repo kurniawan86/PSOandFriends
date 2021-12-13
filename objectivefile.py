@@ -6,6 +6,13 @@ class Objective:
     def __init__(self):
         pass
 
+    def Step(self, x):
+        print('step')
+        tot = 0
+        for i in range (len(x)):
+            tot = tot + math.pow((x[i]+0.5),2)
+        return tot
+
     def Rosenbrock2D(self, x):
         x1 = x[0]
         x2 = x[1]
@@ -25,8 +32,26 @@ class Objective:
         alpha = 418.982887
         fitness = 0
         for i in range(len(chromosome)):
-            fitness -= chromosome[i] * math.sin(math.sqrt(math.fabs(chromosome[i])))
+            fitness = fitness-chromosome[i] * math.sin(math.sqrt(math.fabs(chromosome[i])))
         return float(fitness) + alpha * len(chromosome)
+
+    def Rastrigin(self, x):
+        tot = 0
+        for i in range(len(x)):
+            tot += math.pow(x[i],2)-10*math.cos(2*math.pi*x[i])+10
+        return tot
+
+    def Ackley(self, x):
+        n = len(x)
+        res1 = 0
+        res2 = 0
+        for i in range(n):
+            res1 += math.pow(x[i],2)
+            res2 += math.cos(2*math.pi*x[i])
+        res1 = res1 / n
+        res2 = res2 / n
+        return -20*math.exp(-20*res1-math.exp(res2))+20+math.e
+
 
     def koefesienDiesel(self, x):
         # load dataset from dataset_mesin

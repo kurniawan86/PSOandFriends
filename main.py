@@ -26,18 +26,21 @@ def testing(x):
 # ini digunakan untuk running mesin deisel
 #
 if __name__ == '__main__':
-    nPopulasi = 50
-    nDim = 6
+    nPopulasi = 20
+    nDim = 4
     inersia = 1
     maximini = 'min'
-    maxloop = 100
+    maxloop = 50
 
     #function:
     # Rosenbrock : 2 Dimensi
-    # Sphere : unimodal
-    # SchwefelF7 : unimodal
+    # Sphere : multi dimensi [-100,100]
+    # SchwefelF7 : Multi-Dimensi [-500 500]
+    # Step : multi Dimensi [-100, 100]
+    # Rastrigin : mulitt dimensi[-5.12, 512]
+    # Ackley : multi Dimensi [-32,32]
 
-    pso = PSO(nPopulasi, nDim, inersia, maximini, maxloop, Function='SchwefelF7',bound = [-500,500])
+    pso = PSO(nPopulasi, nDim, inersia, maximini, maxloop, Function='Ackley')
     # koefesien = pso.getVariableOptimal()
     # testing(koefesien)
     # x = [1,2,3,4]
