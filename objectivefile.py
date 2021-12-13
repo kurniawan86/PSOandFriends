@@ -13,6 +13,21 @@ class Objective:
         temp2 = math.pow(x1-1, 2)
         return 100*temp1-temp2
 
+    def Sphere(self, x):
+        n = len(x)
+        tot = 0
+        for i in range(n):
+            tot = tot + math.pow(x[i],2)
+        return tot
+
+    def SchwefelF7(self, x):
+        chromosome = x
+        alpha = 418.982887
+        fitness = 0
+        for i in range(len(chromosome)):
+            fitness -= chromosome[i] * math.sin(math.sqrt(math.fabs(chromosome[i])))
+        return float(fitness) + alpha * len(chromosome)
+
     def koefesienDiesel(self, x):
         # load dataset from dataset_mesin
         file = panda.read_excel(open('dataset_mesin.xlsx', 'rb'))

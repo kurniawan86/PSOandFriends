@@ -26,14 +26,20 @@ def testing(x):
 # ini digunakan untuk running mesin deisel
 #
 if __name__ == '__main__':
-    nPopulasi = 5
-    nDim = 4
+    nPopulasi = 50
+    nDim = 6
     inersia = 1
     maximini = 'min'
-    maxloop = 5
-    pso = PSO(nPopulasi, nDim, inersia, maximini, maxloop, Function='koefesienDiesel')
-    koefesien = pso.getVariableOptimal()
-    testing(koefesien)
+    maxloop = 100
+
+    #function:
+    # Rosenbrock : 2 Dimensi
+    # Sphere : unimodal
+    # SchwefelF7 : unimodal
+
+    pso = PSO(nPopulasi, nDim, inersia, maximini, maxloop, Function='SchwefelF7',bound = [-500,500])
+    # koefesien = pso.getVariableOptimal()
+    # testing(koefesien)
     # x = [1,2,3,4]
     # obj = Objective()
     # obj.koefesienDiesel(x)

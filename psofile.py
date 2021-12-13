@@ -80,6 +80,16 @@ class PSO:
                 fit = (self.obj.koefesienDiesel(
                     self.swarm[i].position))
                 self.swarm[i].fitness = fit
+        elif self.function_name == 'Sphere':
+            for i in range(self.nSwarm):
+                fit = (self.obj.Sphere(
+                    self.swarm[i].position))
+                self.swarm[i].fitness = fit
+        elif self.function_name == 'SchwefelF7':
+            for i in range(self.nSwarm):
+                fit = (self.obj.SchwefelF7(
+                    self.swarm[i].position))
+                self.swarm[i].fitness = fit
 
     def initPbestFitness(self):
         for i in range(self.nSwarm):
