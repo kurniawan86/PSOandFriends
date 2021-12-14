@@ -83,3 +83,36 @@ class Objective:
         for i in range(n):
             error.append(abs(result[i]-dataset[i][3]))
         return (sum(error))
+
+    def koefesienDiesel2(self, x):
+        # load dataset from dataset_mesin
+        file = panda.read_excel(open('dataset_mesin.xlsx', 'rb'))
+        df = panda.DataFrame(
+            file, columns=(['Pinj', 'Dimp', 'Dhole', 'Q']))
+        dataset = np.array(df.values.tolist())  # array numpy dataset
+
+        # initialization variable
+        n = dataset.shape[0]
+        x1 = x[1]
+        x2 = x[2]
+        x3 = x[3]
+        x0 = x[0]
+
+        # data modeling
+        # Q = C.Pinj^a.Dimp^b.Dhole^c
+
+        # calculate result from optimization algorithm
+        result = []
+        for i in range(n):
+            cal1 = x0
+            cal2 = x1*math.log(dataset[i][1])
+            cal3 = x2*math.log(dataset[i][2])
+            cal4 = x3*math.log(dataset[i][3])
+            cal5 = cal1 + cal2 + cal3 + cal4
+            result.append(math.exp(cal5))
+
+        # calculate error (objective function)
+        error = []
+        for i in range(n):
+            error.append(abs(result[i] - dataset[i][3]))
+        return (sum(error))

@@ -77,7 +77,7 @@ class PSO:
                 self.swarm[i].fitness = fit
         elif self.function_name == 'koefesienDiesel':
             for i in range(self.nSwarm):
-                fit = (self.obj.koefesienDiesel(
+                fit = (self.obj.koefesienDiesel2(
                     self.swarm[i].position))
                 self.swarm[i].fitness = fit
         elif self.function_name == 'Sphere':
