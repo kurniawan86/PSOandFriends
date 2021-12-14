@@ -10,12 +10,10 @@ def testing(x):
     df = panda.DataFrame(
         file, columns=(['Pinj', 'Dimp', 'Dhole', 'Q']))
     dataset = np.array(df.values.tolist())  # array numpy dataset
-
     x1 = x[1]
     x2 = x[2]
     x3 = x[3]
     x0 = x[0]
-    n = len(x)
     result = []
     for i in range(12):
         cal1 = x0
